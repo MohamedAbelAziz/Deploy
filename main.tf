@@ -1,5 +1,5 @@
 provider "aws" {
-   region = "eu-north-1"
+  region = "eu-north-1"
 }
 
 #resource "aws_instance" "terraform_inst" {
@@ -12,12 +12,12 @@ provider "aws" {
 #}
 
 resource "aws_instance" "web" {
-  ami           = "ami-04cdc91e49cb06165"       
-  instance_type = "t3.micro"
+  ami             = "ami-04cdc91e49cb06165"
+  instance_type   = "t3.micro"
   security_groups = [aws_security_group.Terraform_SG.name]
-  count = 2
+  count           = 2
   tags = {
-    Name = "Terraform EC2-${count.index+1}"
+    Name = "Terraform EC2-${count.index + 1}"
   }
 }
 
